@@ -1,10 +1,26 @@
-def fact_rec(n):
- if(n==0 or n==1):
-     return 1
- else :
-     return n*fact_rec(n - 1)
+class Student:
+  def __init__(self,name,roll_number,cgpa):
+    self.name=name
+    self.roll_number=roll_number
+    self.cgpa=cgpa
+
+def sort_students(students_list):
+    sorted_students=sorted(students_list,               
+        key=lambda student:student.cgpa,
+                           reverse=True)
+   
+    return sorted_students
 
 
-number=int(input("enter the value"))
-res = fact_rec(number)
-print("the factorial of {} is {}". format (number,res))
+students=[                      
+     Student("Hari", "A123", 7.8),
+     Student("srikanth", "A124", 8.9), 
+     Student("savmya", "A125", 9.1),
+     Student("Mahindhar", "A126", 9.9),
+]
+
+sorted_students=sort_students(students)
+for student in sorted_students:
+    print("Name: {},Roll Number: {},CGPA:  {}".format(student.name,
+ student.roll_number,
+            student.cgpa))
